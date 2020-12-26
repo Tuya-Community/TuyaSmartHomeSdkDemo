@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    -渐变
+    <gradient
+        android:angle="360"
+        android:endColor="#12062C"
+        android:gradientRadius="1200"
+        android:startColor="#391D62"
+        android:type="radial" />
+</shape>
+-->
+<bitmap  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/user_back"
+    android:antialias="true"
+    android:tileMode="mirror"
+    android:filter="true"
+    android:dither="true"
+    android:gravity="center"
+    >
+
+</bitmap>

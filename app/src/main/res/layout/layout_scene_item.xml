@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/user_homeback"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="194dp">
+
+        <ImageView
+            android:id="@+id/scene_bg"
+            android:layout_width="match_parent"
+            android:layout_height="194dp" />
+
+        <ImageView
+            android:id="@+id/scene_setting"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="26dp"
+            android:layout_marginRight="@dimen/mg_20"
+            android:scaleType="center"
+            android:src="@drawable/scene_manual_more" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/scene_setting"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="@dimen/mg_10"
+            android:layout_toLeftOf="@id/scene_setting"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:transitionName="title" />
+
+
+        <TextView
+            android:id="@+id/tv_excute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="26dp"
+            android:layout_marginBottom="@dimen/mg_30"
+            android:background="@drawable/scene_excute_bg"
+            android:paddingLeft="@dimen/mg_20"
+            android:paddingTop="@dimen/mg_6"
+            android:paddingRight="@dimen/mg_20"
+            android:paddingBottom="@dimen/mg_6"
+            android:text="@string/ty_exe"
+            android:textColor="#000"
+            android:textSize="@dimen/ts_14"
+            android:textStyle="bold" />
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/swtich"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/mg_22"
+            android:layout_marginBottom="26dp"
+            android:checked="true" />
+    </RelativeLayout>
+
+</LinearLayout>
