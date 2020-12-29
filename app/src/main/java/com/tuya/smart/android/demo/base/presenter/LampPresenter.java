@@ -11,6 +11,8 @@ import com.tuya.smart.centralcontrol.TuyaLightDevice;
 import com.tuya.smart.sdk.api.IResultCallback;
 import com.tuya.smart.sdk.centralcontrol.api.ILightListener;
 import com.tuya.smart.sdk.centralcontrol.api.bean.LightDataPoint;
+import com.tuya.smart.sdk.centralcontrol.api.constants.LightMode;
+import com.tuya.smart.sdk.centralcontrol.api.constants.LightScene;
 import com.tuya.smart.sdk.centralcontrol.parser.bean.LightColourData;
 
 
@@ -96,8 +98,94 @@ public class LampPresenter extends BasePresenter implements ILightListener {
             }
         });
     }
+    /**
+     * 更新灯泡模式状态 @
+     */
+    public void LampGoodnightScene() {
+         mLightDevice.scene(LightScene.SCENE_GOODNIGHT, new IResultCallback(){
+             @Override
+             public void onError(String code, String error) {
+             }
 
+             @Override
+             public void onSuccess() {
+             }
+         });
+     }
 
+    public void LampWorkScene() {
+        mLightDevice.scene(LightScene.SCENE_WORK, new IResultCallback(){
+            @Override
+            public void onError(String code, String error) {
+            }
+
+            @Override
+            public void onSuccess() {
+            }
+        });
+    }
+
+    public void LampReadScene() {
+        mLightDevice.scene(LightScene.SCENE_READ, new IResultCallback(){
+            @Override
+            public void onError(String code, String error) {
+            }
+
+            @Override
+            public void onSuccess() {
+            }
+        });
+    }
+
+    public void LampCasualScene() {
+        mLightDevice.scene(LightScene.SCENE_CASUAL, new IResultCallback(){
+            @Override
+            public void onError(String code, String error) {
+            }
+
+            @Override
+            public void onSuccess() {
+            }
+        });
+    }
+    /**
+    * 灯的工作模式切换@
+    */
+    public void LampWhiteMode(){
+        mLightDevice.workMode(LightMode.MODE_WHITE, new IResultCallback(){
+            @Override
+            public void onError(String code, String error) {
+            }
+
+            @Override
+            public void onSuccess() {
+            }
+        });
+    }
+
+    public void LampColorMode(){
+        mLightDevice.workMode(LightMode.MODE_COLOUR, new IResultCallback(){
+            @Override
+            public void onError(String code, String error) {
+            }
+
+            @Override
+            public void onSuccess() {
+            }
+        });
+    }
+
+    public void LampSceneMode(){
+        mLightDevice.workMode(LightMode.MODE_SCENE, new IResultCallback(){
+            @Override
+            public void onError(String code, String error) {
+            }
+
+            @Override
+            public void onSuccess() {
+            }
+        });
+    }
     /**
      * 更新灯泡的开关状态
      * @param lightDataPoint
@@ -110,7 +198,7 @@ public class LampPresenter extends BasePresenter implements ILightListener {
                 mView.showOperationView();
                 mLampOperationColorFactory.showOperationView();
             } else {
-                mView.hideLampView();
+                mView.hideLampView();//隐藏冷暖面板函数
             }
         }
         mIsOpenLastStatus = isOpen;
@@ -118,7 +206,7 @@ public class LampPresenter extends BasePresenter implements ILightListener {
 
 
     public void onClickLampSwitch() {
-        boolean isOpen = mLightDevice.getLightDataPoint().powerSwitch;
+        boolean isOpen = mLightDevice.getLightDataPoint().powerSwitch;//.powerSwitch
         if (isOpen) {
             startCloseLamp();
         } else {

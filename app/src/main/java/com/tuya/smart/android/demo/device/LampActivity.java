@@ -39,12 +39,14 @@ public class LampActivity extends BaseActivity implements ILampView {
     @BindView(R.id.tv_lamp_color_mode)
     public TextView mLampModeViewTip;
 
-
-    @BindView(R.id.fl_lamp_white_operation)
+    @BindView(R.id.fl_lamp_white_operation)//声明一个亮度/冷暖面板
     public View mOperationView;
 
+    @BindView(R.id.fl_lamp_mode_operation)//声明一个模式操作面板@
+    public View mModeView;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {//初始化
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lamp);
 
@@ -67,7 +69,7 @@ public class LampActivity extends BaseActivity implements ILampView {
     }
 
     @Override
-    public void showLampView() {
+    public void showLampView() {//当点击开灯时，会打开面板
         if (mLampView.getVisibility() != View.VISIBLE) {
             mLampView.setVisibility(View.VISIBLE);
         }
@@ -81,23 +83,31 @@ public class LampActivity extends BaseActivity implements ILampView {
         if (mLampViewTip.getVisibility() != View.VISIBLE) {
             mLampViewTip.setVisibility(View.VISIBLE);
         }
+
+        //模式面板 关闭@
+        if (mModeView.getVisibility() != View.GONE) {
+            mModeView.setVisibility(View.GONE);
+        }
+
         mLampViewTip.setText(R.string.lamp_close_tip);
     }
 
     @Override
-    public void hideLampView() {
-        if (mLampView.getVisibility() != View.GONE) {
+    public void hideLampView() {//当点击关灯时，会隐藏面板
+        if (mLampView.getVisibility() != View.GONE) {//关闭彩色面板
             mLampView.setVisibility(View.GONE);
         }
         mLampSwitchButton.setImageResource(R.drawable.ty_lamp_wick_line);
         mLampCloseLight.setVisibility(View.VISIBLE);
         mLampViewTip.setVisibility(View.VISIBLE);
-        mLampViewTip.setText(R.string.lamp_open_tip);
+        mLampViewTip.setText(R.string.lamp_open_tip);//显示 按下开灯
         if (mLampModeViewTip.getVisibility() != View.GONE) {
             mLampModeViewTip.setVisibility(View.GONE);
+            mModeView.setVisibility(View.GONE);//不可视模式面板 @
         }
         mLampPresenter.hideOperation();
-        mOperationView.setVisibility(View.GONE);
+        mOperationView.setVisibility(View.GONE);//不可视冷暖面板
+        mModeView.setVisibility(View.GONE);//不可视模式面板 @
     }
 
 
@@ -122,7 +132,7 @@ public class LampActivity extends BaseActivity implements ILampView {
     }
 
     @Override
-    public void showOperationView() {
+    public void showOperationView() {//显示浮动面板
         mOperationView.setVisibility(View.VISIBLE);
         AnimationUtil.translateView(mOperationView, Animation.RELATIVE_TO_SELF, 0f,
             Animation.RELATIVE_TO_SELF, 0f,
@@ -143,22 +153,21 @@ public class LampActivity extends BaseActivity implements ILampView {
     }
 
     @OnClick(R.id.ll_lamp_bottom_operation)
-    public void onClickArrawUp() {
+    public void onClickArrawUp() {//下箭头的监听函数
         AnimationUtil.translateView(mOperationView, Animation.RELATIVE_TO_SELF, 0f,
             Animation.RELATIVE_TO_SELF, 0f,
             Animation.RELATIVE_TO_SELF, 0f,
             Animation.RELATIVE_TO_SELF, 1f, 300, false, new Animation.AnimationListener() {
                 @Override
                 public void onAnimationStart(Animation animation) {
-
+                    mOperationView.setVisibility(View.GONE);
                 }
 
                 @Override
                 public void onAnimationEnd(Animation animation) {
-                    mOperationView.setVisibility(View.GONE);
+                    mModeView.setVisibility(View.VISIBLE);
                     mLampViewTip.setVisibility(View.VISIBLE);
-                    mLampPresenter.hideOperation();
-
+                    //mLampPresenter.hideOperation();
                 }
 
                 @Override
@@ -166,6 +175,63 @@ public class LampActivity extends BaseActivity implements ILampView {
 
                 }
             });
+    }
+    @OnClick(R.id.ll_lamp_up_operation)//@
+    public void onVClickArrawDown(){
+        AnimationUtil.translateView(mOperationView, Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF, 1f, 300, false, new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        mModeView.setVisibility(View.GONE);//隐藏模式面板 @
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        mOperationView.setVisibility(View.VISIBLE);
+                        //mLampViewTip.setVisibility(View.VISIBLE);
+                        //mLampPresenter.hideOperation();
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+    }
+
+    @OnClick(R.id.ll_lamp_mode_goodnight)
+    public void onClickGoodnight() {//晚安模式@
+        mLampPresenter.LampGoodnightScene();
+    }
+
+    @OnClick(R.id.ll_lamp_mode_work)
+    public void onClickWork() {//晚安模式@
+        mLampPresenter.LampWorkScene();
+    }
+
+    @OnClick(R.id.ll_lamp_mode_read)
+    public void onClickRead() {//晚安模式@
+        mLampPresenter.LampReadScene();
+    }
+
+    @OnClick(R.id.ll_lamp_mode_casual)
+    public void onClickCasual() {//晚安模式@
+        mLampPresenter.LampCasualScene();
+    }
+
+    @OnClick(R.id.ll_lamp_work_white)
+    public void onClickWhite() {//晚安模式@
+        mLampPresenter.LampWhiteMode();
+    }
+
+    @OnClick(R.id.ll_lamp_work_color)
+    public void onClickColor() { mLampPresenter.LampColorMode(); }
+
+    @OnClick(R.id.ll_lamp_work_scene)
+    public void onClickScene() {//晚安模式@
+        mLampPresenter.LampSceneMode();
     }
 
 
@@ -179,4 +245,6 @@ public class LampActivity extends BaseActivity implements ILampView {
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
 }
+

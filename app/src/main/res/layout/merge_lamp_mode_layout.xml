@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <merge xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout
+            android:id="@+id/ll_lamp_work_white"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="160dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="120dp">
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/user_mode_white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="白光模式"
+                android:paddingLeft="30px" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_lamp_work_color"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="160dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp">
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/user_mode_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="彩光模式"
+            android:paddingLeft="30px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_lamp_work_scene"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="160dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="0dp">
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/user_mode_scene" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="情景模式"
+            android:paddingLeft="30px" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_lamp_mode_goodnight"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="100dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="120dp">
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/user_mode_night" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="晚安情景"
+                android:paddingLeft="30px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_lamp_mode_work"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="100dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="10dp">
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/user_mode_work" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="工作情景"
+                android:paddingLeft="30px"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_lamp_mode_read"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="120dp">
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/user_mode_read" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="阅读情景"
+                android:paddingLeft="30px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_lamp_mode_casual"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="10dp">
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/user_mode_casual" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="休闲情景"
+                android:paddingLeft="30px" />
+        </LinearLayout>
+    </merge>

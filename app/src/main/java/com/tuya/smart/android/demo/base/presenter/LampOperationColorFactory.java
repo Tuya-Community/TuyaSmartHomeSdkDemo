@@ -45,6 +45,9 @@ public class LampOperationColorFactory implements LampOperationFactory, SeekBar.
     @BindView(R.id.picker)
     public LampView mLampView;
 
+    @BindView(R.id.fl_lamp_mode_operation)//声明一个模式操作面板@
+    public View mModeView;
+
     public ILampView mView;
 
     public LampOperationColorFactory(Activity activity, ILampView lampView) {
@@ -93,11 +96,10 @@ public class LampOperationColorFactory implements LampOperationFactory, SeekBar.
     }
 
     @Override
-    public void hideOperationView() {
-
+    public void hideOperationView() {//按下小箭头
         mLightView.setVisibility(View.GONE);
         mLampModeViewTip.setVisibility(View.GONE);
-
+        mModeView.setVisibility(View.VISIBLE);//可视化模式面板 @
         PuzzleAnimation puzzleAnimation = new PuzzleAnimation(1f, 0.5f);
         puzzleAnimation.setDuration(300);
         puzzleAnimation.setAnimationListener(new Animation.AnimationListener() {
