@@ -21,16 +21,19 @@ For more information, please check [Tuya Developer Website](https://developer.
 #### 2. 主界面设计
 
 通过将 xml 文件的背景进行替换，将整个背景采用圣诞元素壁纸。
+
 ![Demo Image1](./images/demo_image1.png)
 
 #### 3. 设备界面设计
 
 同主界面背景一样，采用了同一背景设计，将整体突兀程度降低。
+
 ![Demo Image2](./images/demo_image2.png)
 
 #### 二. 元素设计
 
 #### 1. 任务栏元素设计
+
 ![Demo Image3](./images/demo_image3.png)
 
 任务栏图标进行了重新设计，图标主要来源是[iconfont](https://www.iconfont.cn/?spm=a313x.7781069.1998910419.d4d0a486a) 图标库，进行相关转换后
